@@ -21,6 +21,10 @@ gunicorn --workers 2 --bind 127.0.0.1:10003 mysite.wsgi:application
 
 However, the intention for this app stack was to host multiple Django applications, so Supervisor would be used to manage them all in `gunicorn.conf`.
 
+## `@csrf_exempt`
+
+Since the applications are meant to be hosted on non convention http ports (80 and 443), the `@csrf_exempt` decorators are required.
+
 ## TODOs
 
 - move python dependencies to a separate file like `requirements.txt` instead of having it in the Dockerfile
